@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "08ca6404-defc-4c10-b7e1-3182e05d995e",
+		"name": "Shared Todo list",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12309398"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"abc\",\r\n    \"password\" : \"new\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Board For User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"New Board\",\r\n    \"user\": {\r\n        \"username\": \"abc\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/users/1/board",
+				"description": "Add board and become owner of that board"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/users/1/board/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Todo to the board For User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Todo item 3\",\r\n    \"user\": {\r\n        \"id\" : 1,\r\n        \"username\": \"abc\"\r\n    },\r\n    \"board\": null,\r\n    \"isCompleted\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/users/1/board/33/todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle todo status - assignee exclusive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "localhost:8080/users/33/todos/2",
+				"description": "Toggle status of your todo list  \n\nNo other user can toggle this"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete todo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/users/1/board/33/todo/33"
+			},
+			"response": []
+		}
+	]
+}
