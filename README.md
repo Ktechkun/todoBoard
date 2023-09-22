@@ -23,5 +23,5 @@ Import json file provided in `/todoBoard/postman` in Postman.\
 Hit the apis
 1. Create user
 2. Create / Delete Board
-3. Add / Modify / Delete Todo item
+3. Add / Modify / Delete Todo items
 
